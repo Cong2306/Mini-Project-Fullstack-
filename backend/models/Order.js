@@ -16,6 +16,10 @@ const OrderSchema = new mongoose.Schema(
       address: {
         type: String,
         default: ""
+      },
+      email: {
+        type: String,
+        default: ""
       }
     },
 
@@ -39,11 +43,22 @@ const OrderSchema = new mongoose.Schema(
           type: Number,
           required: true,
           min: 1
+        },
+        subtotal: {
+          type: Number,
+          required: true,
+          min: 0
         }
       }
     ],
 
     totalAmount: {
+      type: Number,
+      required: true,
+      min: 0
+    },
+
+    totalQuantity: {
       type: Number,
       required: true,
       min: 0
@@ -58,7 +73,7 @@ const OrderSchema = new mongoose.Schema(
     paymentMethod: {
       type: String,
       enum: ["COD", "MOMO", "ZALOPAY", "BANK_TRANSFER"],
-      default: "COD"
+      default: "COD" // ← Chỉ dùng nếu client không gửi gì
     }
   },
   {

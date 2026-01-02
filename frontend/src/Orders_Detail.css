@@ -1,112 +1,155 @@
-/* ===== ORDER DETAIL FULL WIDTH ===== */
+/* ===== COLOR SYSTEM (ĐỒNG BỘ INVENTORY) ===== */
+:root {
+  --blue: #0275d8;
+  --cyan: #5bc0de;
+  --yellow: #f0ad4e;
+  --red: #d9534f;
+
+  --bg-page: #f5f7fa;
+  --bg-card: #ffffff;
+  --border: #dee2e6;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --radius: 8px;
+}
+
+/* ===== PAGE ===== */
 .order-detail-container {
-  width: 100vw;                 /* FULL chiều ngang màn hình */
+  width: 100vw;
   min-height: calc(100vh - 80px);
-
-  padding: 40px 60px;           /* thoáng 2 bên */
-  margin: 0;                    /* bỏ auto -> khỏi bị canh giữa */
-
-  background-color: #f7f8fa;
-  border-radius: 0;             /* full page thì bỏ bo góc */
-
-  box-shadow: none;             /* bỏ shadow khung */
+  padding: 30px 40px;
+  background-color: var(--bg-page);
   box-sizing: border-box;
 }
 
-/* ===== NỘI DUNG BÊN TRONG ===== */
+/* ===== HEADER ===== */
+.header {
+  background: var(--bg-card);
+  padding: 16px 28px;
+  border-radius: var(--radius);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* ===== CONTENT ===== */
 .order-detail-content {
-  max-width: 1400px;            /* GIỚI HẠN NỘI DUNG – nhìn sang */
+  max-width: 1400px;
   margin: 0 auto;
 
   display: flex;
-  gap: 48px;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .order-detail-content {
-    flex-direction: column;
-  }
-}
-
-
-.order-detail-container h2 {
-  margin-bottom: 20px;
-}
-
-.order-detail-content {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap; /* responsive */
-}
-
+/* ===== CARDS ===== */
 .order-detail-left,
 .order-detail-right {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
+
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+
+  border: 1px solid var(--border);
+}
+
+/* ===== TITLES ===== */
+.order-detail-container h2 {
+  margin-bottom: 15px;
+  color: var(--text-main);
 }
 
 .order-detail-left h3,
 .order-detail-right h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: var(--text-main);
 }
 
+/* ===== INFO ===== */
 .order-detail-left p {
-  margin: 5px 0;
+  margin: 6px 0;
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
+.order-detail-left strong {
+  color: var(--text-main);
+}
+
+/* ===== STATUS CONTROL (GIỐNG INVENTORY CARD) ===== */
+.order-detail-right select {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+.order-detail-right button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+
+  background-color: var(--blue);
+  color: white;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.order-detail-right button:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+/* ===== TABLE ===== */
 .order-detail-right table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .order-detail-right table th,
 .order-detail-right table td {
-  padding: 8px;
   border: 1px solid #ccc;
+  padding: 8px;
   text-align: left;
 }
 
 .order-detail-right table th {
-  background-color: #eee;
+  background-color: #f1f3f5;
 }
 
 .order-detail-right table td {
   background-color: #fff;
 }
 
-.order-detail-right select {
-  padding: 5px 8px;
-  border-radius: 4px;
+/* ===== TOTAL ROW ===== */
+.order-detail-right table tr:last-child td {
+  font-weight: bold;
+  background-color: #f8f9fa;
 }
 
-.order-detail-right button {
-  margin-left: 10px;
-  padding: 5px 10px;
-  border-radius: 4px;
+/* ===== STOCK STATES (GIỐNG INVENTORY) ===== */
+.low-stock {
+  background-color: #fff3cd;
+}
+
+.out-of-stock {
+  background-color: #f8d7da;
+}
+
+/* ===== BACK BUTTON ===== */
+.order-detail-container > button {
+  margin-bottom: 15px;
+  background: transparent;
+  border: none;
+  color: var(--blue);
+  font-weight: bold;
   cursor: pointer;
-}
-
-
-.header {
-  background: #ffffff;              /* nền trắng rõ */
-  padding: 16px 32px;
-  border-radius: 12px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  /* ĐỔ BÓNG RÕ */
-  box-shadow: 
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 10px 20px rgba(0, 0, 0, 0.08);
-
-  /* tạo khoảng cách với nội dung dưới */
-  margin-bottom: 40px;
-
-  /* đảm bảo shadow không bị che */
-  position: relative;
-  z-index: 10;
 }

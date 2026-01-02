@@ -80,7 +80,11 @@ function ProductEdit() {
 
         <button type="submit">💾 Lưu thay đổi</button>
       </form>
+      <p className="back-home" onClick={() => navigate("/products")}>
+          ← Quay về trang Products
+        </p>
     </div>
+    
   );
 }
 

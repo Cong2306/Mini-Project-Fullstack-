@@ -72,7 +72,7 @@ function OrderDetail() {
         </div>
       </header>
 
-      <button onClick={() => navigate(-1)}>← Quay lại</button>
+      
 
       <h2>Chi tiết đơn hàng</h2>
       <p><strong>Mã đơn:</strong> {order._id}</p>
@@ -130,7 +130,11 @@ function OrderDetail() {
             </tbody>
           </table>
         </div>
+        
       </div>
+      <p className="back-home" onClick={() => navigate("/orders")}>
+          ← Quay về trang Orders
+        </p>
     </div>
   );
 }

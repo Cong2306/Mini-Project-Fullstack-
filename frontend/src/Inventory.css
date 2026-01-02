@@ -1,37 +1,121 @@
+/* ===== INVENTORY DASHBOARD ===== */
 .inventory-summary {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* responsive khi màn hình nhỏ */
 }
 
 .summary-card {
-  padding: 10px 15px;
-  border-radius: 5px;
+  flex: 1; /* đều nhau */
+  padding: 20px 15px;
+  border-radius: 8px;
   color: white;
   font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
 }
 
-.summary-card.total { background-color: #0275d8; }
-.summary-card.stock { background-color: #5bc0de; }
-.summary-card.low { background-color: #f0ad4e; }
-.summary-card.out { background-color: #d9534f; }
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
 
+.summary-card.active {
+  border: 2px solid #fff;
+  opacity: 1;
+}
+
+/* Màu sắc theo loại */
+.summary-card.total { background-color: #0275d8; }    /* Xanh dương */
+.summary-card.stock { background-color: #5bc0de; }    /* Xanh nhạt */
+.summary-card.low { background-color: #f0ad4e; }      /* Cam */
+.summary-card.out { background-color: #d9534f; }      /* Đỏ */
+
+/* ===== TABLE ===== */
 .inventory-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .inventory-table th,
 .inventory-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
   text-align: left;
 }
 
+.inventory-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.inventory-table tbody tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.2s;
+}
+
+/* ===== LOW & OUT OF STOCK ===== */
 .low-stock {
-  background-color: #fff3cd;
+  background-color: #fff3cd; /* vàng nhạt */
+  color: #856404;
 }
 
 .out-of-stock {
-  background-color: #f8d7da;
+  background-color: #f8d7da; /* đỏ nhạt */
+  color: #721c24;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
+  display: flex;
+  gap: 5px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #0275d8;
+  color: white;
+  border-color: #0275d8;
+}
+
+.pagination button.active {
+  background-color: #0275d8;
+  color: white;
+  border-color: #0275d8;
+}
+
+/* ===== SEARCH INPUT ===== */
+.inventory-toolbar .search-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .inventory-summary {
+    flex-direction: column;
+  }
 }

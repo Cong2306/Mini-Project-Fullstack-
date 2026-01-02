@@ -279,6 +279,9 @@ function CreateOrder() {
             ))}
           </div>
         </div>
+        <p className="back-home" onClick={() => navigate("/orders")}>
+          ← Quay về trang Orders
+        </p>
       </div>
     </div>
   );

@@ -1,9 +1,8 @@
 // src/pages/Products.js
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getProducts } from "./services/productService";
+import { getProducts, deleteProduct } from "./services/productService";
 import "./Products.css";
-
 
 const ITEMS_PER_PAGE = 10;
 
@@ -17,6 +16,7 @@ function Products() {
 
   const navigate = useNavigate();
 
+  /* ===== FETCH PRODUCTS ===== */
   useEffect(() => {
     getProducts()
       .then((res) => {
@@ -35,7 +35,6 @@ function Products() {
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  
 
   /* ===== PAGINATION ===== */
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
@@ -45,10 +44,22 @@ function Products() {
     startIndex + ITEMS_PER_PAGE
   );
 
-  /* ===== ACTIONS ===== */
-  const handleDelete = (id) => {
+  /* ===== DELETE ===== */
+  const handleDelete = async (id) => {
     if (!window.confirm("Bạn có chắc muốn xóa sản phẩm này?")) return;
-    setProducts(products.filter((p) => p._id !== id));
+
+    try {
+      await deleteProduct(id); // 🔥 XÓA TRONG DATABASE
+
+      setProducts((prev) =>
+        prev.filter((p) => p._id !== id)
+      ); // 🔥 CẬP NHẬT UI
+
+      alert("✅ Xóa sản phẩm thành công");
+    } catch (error) {
+      console.error(error);
+      alert("❌ Xóa sản phẩm thất bại");
+    }
   };
 
   return (
@@ -69,36 +80,37 @@ function Products() {
         </div>
       </header>
 
-      {/* ===== CONTENT ===== */}
+      {/* ===== API STATUS ===== */}
       <div className={`api-status ${statusType}`}>
-          {apiStatus || "Đang kiểm tra kết nối API..."}
+        {apiStatus || "Đang kiểm tra kết nối API..."}
       </div>
+
+      {/* ===== CONTENT ===== */}
       <div className="products-container">
         <h2>Danh sách sản phẩm</h2>
 
         {/* ===== TOOLBAR ===== */}
-<div className="products-toolbar">
-  <input
-    type="text"
-    placeholder="🔍 Tìm kiếm theo tên sản phẩm..."
-    className="search-input"
-    value={searchTerm}
-    onChange={(e) => {
-      setSearchTerm(e.target.value);
-      setCurrentPage(1);
-    }}
-  />
+        <div className="products-toolbar">
+          <input
+            type="text"
+            placeholder="🔍 Tìm kiếm theo tên sản phẩm..."
+            className="search-input"
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+          />
 
-        <button
-        className="btn btn-add"
-        onClick={() => navigate("/products/create")}
-        >
-        ➕ Thêm sản phẩm
-      </button>
+          <button
+            className="btn btn-add"
+            onClick={() => navigate("/products/create")}
+          >
+            ➕ Thêm sản phẩm
+          </button>
+        </div>
 
-</div>
-
-
+        {/* ===== TABLE ===== */}
         <table className="products-table">
           <thead>
             <tr>
@@ -182,9 +194,6 @@ function Products() {
             </button>
           </div>
         )}
-
-        {/* ===== STATUS ===== */}
-        
 
         {/* ===== BACK ===== */}
         <p

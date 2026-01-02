@@ -1,13 +1,30 @@
 import axios from "axios";
 
-export const login = async (username, password) => {
-  const res = await axios.post("http://localhost:5000/api/auth/login", { username, password });
+const API_URL = "http://localhost:5000/api/auth";
 
-  // lưu vào localStorage để header hoặc dashboard dùng
-  localStorage.setItem("currentUser", JSON.stringify(res.data));
-  console.log("Login attempt:", username, password);
-  console.log("User in DB:", res.data);
+export const login = async (username, password) => {
+  const res = await axios.post(`${API_URL}/login`, {
+    username,
+    password,
+  });
+
+  /**
+   * Backend nên trả:
+   * {
+   *   token: "...",
+   *   user: { id, name, role, ... }
+   * }
+   */
+
+  const { token, user } = res.data;
+
+  // 🔐 LƯU TOKEN (quan trọng nhất)
+  localStorage.setItem("token", token);
+
+  // 👤 LƯU USER
+  localStorage.setItem("currentUser", JSON.stringify(user));
+
+  console.log("✅ Login success:", user);
 
   return res.data;
-  
 };

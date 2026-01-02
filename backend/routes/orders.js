@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
   session.startTransaction();
 
   try {
-    const { customer, items, totalAmount, status } = req.body;
+    const { customer, items, totalAmount, status, paymentMethod, totalQuantity } = req.body;
 
     if (!items || items.length === 0) {
       throw new Error("Đơn hàng chưa có sản phẩm");
@@ -55,18 +55,19 @@ router.post("/", async (req, res) => {
       await product.save({ session });
     }
 
-    // 2️⃣ Tạo đơn hàng
+    // 2️⃣ Tạo đơn hàng, lưu đúng paymentMethod từ client
     const newOrder = new Order({
       customer,
       items,
       totalAmount,
+      totalQuantity,
+      paymentMethod: paymentMethod || "COD", // ← sửa đây
       status: status || "pending",
-      createdAt: new Date(),
     });
 
     await newOrder.save({ session });
 
-    // 3️⃣ Commit
+    // 3️⃣ Commit transaction
     await session.commitTransaction();
     session.endSession();
 
