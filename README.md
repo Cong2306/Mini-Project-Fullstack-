@@ -16,11 +16,7 @@
 
 - Thêm chức năng tìm kiếm nâng cao và bộ lọc (filter) khi tra cứu sản phẩm hoặc đơn hàng.
 
-# Hướng dẫn chạy chương trình
 
-Đây là hướng dẫn để chạy phần mềm quản lý đơn hàng và tồn kho.
-
----
 
 # Hướng dẫn chạy chương trình
 
