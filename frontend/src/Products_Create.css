@@ -1,0 +1,105 @@
+.product-edit {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 35px 45px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-edit h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 26px;
+  color: #333;
+}
+
+/* ===== FORM ===== */
+.product-edit form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+/* full width */
+.product-edit textarea,
+.product-edit input[name="image"] {
+  grid-column: 1 / -1;
+}
+
+/* ===== INPUT ===== */
+.product-edit input,
+.product-edit textarea {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.product-edit textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.product-edit input:focus,
+.product-edit textarea:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.15);
+}
+
+/* ===== BUTTON ===== */
+.product-edit button {
+  grid-column: 1 / -1;
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1e90ff, #0d6efd);
+  color: white;
+  transition: all 0.25s ease;
+}
+
+.product-edit button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(30, 144, 255, 0.35);
+}
+
+/* ===== IMAGE PREVIEW ===== */
+.product-edit .image-preview {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.product-edit .image-preview img {
+  max-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.header {
+  background: #ffffff;              /* nền trắng rõ */
+  padding: 16px 32px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* ĐỔ BÓNG RÕ */
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+
+  /* tạo khoảng cách với nội dung dưới */
+  margin-bottom: 40px;
+
+  /* đảm bảo shadow không bị che */
+  position: relative;
+  z-index: 10;
+}

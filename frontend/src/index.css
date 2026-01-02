@@ -1,0 +1,173 @@
+/* ===== Header ===== */
+.header {
+  background: #fff;
+  padding: 15px 30px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Auth buttons ===== */
+.auth-buttons {
+  display: flex;
+  gap: 12px; /* <-- chỉnh khoảng cách 2 nút */
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-outline {
+  background: #fff;
+  border: 1px solid #1e90ff;
+  color: #1e90ff;
+}
+
+.btn-outline:hover {
+  background: #f0f8ff;
+}
+
+.btn-primary {
+  background: #1e90ff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #187bcd;
+}
+
+/* ===== Main ===== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+.db-status {
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.db-status.success {
+  color: green;
+}
+
+.db-status.error {
+  color: red;
+}
+
+.description {
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* ===== Menu giữa trang ===== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.menu-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.menu-card h3 {
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.menu-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+
+
+/* ===== Submenu ===== */
+.submenu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 180px;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+
+.menu-card {
+  position: relative; /* ⭐ QUAN TRỌNG */
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover card */
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Submenu ===== */
+.submenu {
+  list-style: none;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 180px;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+/* ⭐ Hover vào menu-card thì hiện submenu */
+.menu-card:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.submenu li {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.submenu li:hover {
+  background: #f1f5f9;
+}

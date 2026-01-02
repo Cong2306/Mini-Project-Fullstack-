@@ -1,0 +1,112 @@
+/* ===== ORDER DETAIL FULL WIDTH ===== */
+.order-detail-container {
+  width: 100vw;                 /* FULL chiều ngang màn hình */
+  min-height: calc(100vh - 80px);
+
+  padding: 40px 60px;           /* thoáng 2 bên */
+  margin: 0;                    /* bỏ auto -> khỏi bị canh giữa */
+
+  background-color: #f7f8fa;
+  border-radius: 0;             /* full page thì bỏ bo góc */
+
+  box-shadow: none;             /* bỏ shadow khung */
+  box-sizing: border-box;
+}
+
+/* ===== NỘI DUNG BÊN TRONG ===== */
+.order-detail-content {
+  max-width: 1400px;            /* GIỚI HẠN NỘI DUNG – nhìn sang */
+  margin: 0 auto;
+
+  display: flex;
+  gap: 48px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .order-detail-content {
+    flex-direction: column;
+  }
+}
+
+
+.order-detail-container h2 {
+  margin-bottom: 20px;
+}
+
+.order-detail-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap; /* responsive */
+}
+
+.order-detail-left,
+.order-detail-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.order-detail-left h3,
+.order-detail-right h3 {
+  margin-bottom: 10px;
+}
+
+.order-detail-left p {
+  margin: 5px 0;
+}
+
+.order-detail-right table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.order-detail-right table th,
+.order-detail-right table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.order-detail-right table th {
+  background-color: #eee;
+}
+
+.order-detail-right table td {
+  background-color: #fff;
+}
+
+.order-detail-right select {
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+.order-detail-right button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.header {
+  background: #ffffff;              /* nền trắng rõ */
+  padding: 16px 32px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* ĐỔ BÓNG RÕ */
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+
+  /* tạo khoảng cách với nội dung dưới */
+  margin-bottom: 40px;
+
+  /* đảm bảo shadow không bị che */
+  position: relative;
+  z-index: 10;
+}
