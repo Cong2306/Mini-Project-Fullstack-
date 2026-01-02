@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/products";
+const API_URL = "https://project-final-otbm.onrender.com/api/products";
 
 /* ===== GET ALL PRODUCTS ===== */
 export const getProducts = () => {

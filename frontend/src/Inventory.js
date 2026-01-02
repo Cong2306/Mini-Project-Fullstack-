@@ -28,7 +28,7 @@ function Inventory() {
 
   const fetchInventory = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/products");
+      const res = await axios.get("https://project-final-otbm.onrender.com/api/products");
       setProducts(res.data);
 
       // Tính thống kê tồn kho

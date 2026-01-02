@@ -10,7 +10,7 @@ function Home() {
 
   // ===== CHECK DB =====
   useEffect(() => {
-    fetch("http://localhost:5000/api/health")
+    fetch("https://project-final-otbm.onrender.com/api/health")
       .then((res) => {
         if (!res.ok) throw new Error("DB error");
         return res.json();

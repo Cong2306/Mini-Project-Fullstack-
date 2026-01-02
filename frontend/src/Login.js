@@ -22,7 +22,7 @@ function Login() {
   useEffect(() => {
     const checkDB = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/health");
+        const res = await axios.get("https://project-final-otbm.onrender.com/api/health");
         if (res.data.success) {
           setDbStatus("connected");
         } else {
