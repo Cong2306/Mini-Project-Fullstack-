@@ -1,71 +1,66 @@
-**Phần mềm quản lý đơn hàng và tồn kho**
+Inventory & Orders Management System
+Ứng dụng quản lý kho hàng và đơn hàng chuyên biệt cho các cửa hàng thiết bị điện tử. Hệ thống giúp tối ưu hóa quy trình theo dõi hàng hóa, xử lý đơn hàng và giám sát mức độ tồn kho theo thời gian thực.
 
-**Chức năng chính:**
+🚀 Tính năng chính
+Hệ thống cung cấp các nhóm chức năng cốt lõi sau:
 
-- Quản lý sản phẩm: xem danh sách, thêm mới, chỉnh sửa, xóa sản phẩm.
-- Quản lý đơn hàng: xem danh sách, tạo mới đơn hàng (tự động trừ số lượng tồn kho tương ứng).
-- Dashboard hiển thị tổng quan về tồn kho và danh sách sản phẩm hiện có.
+Xác thực người dùng: Đăng ký và đăng nhập để bảo mật dữ liệu hệ thống.
 
-**Hạn chế hiện tại:**
+Quản lý sản phẩm (CRUD): Thêm mới, chỉnh sửa thông tin và xóa sản phẩm khỏi danh mục kinh doanh.
 
-- Chưa hỗ trợ đăng nhập/đăng xuất.
-- Chưa thể tải lên hình ảnh sản phẩm.
-- Trạng thái đơn hàng chưa thể cập nhật.
+Quản lý đơn hàng: Tạo đơn hàng mới, xem danh sách chi tiết và cập nhật trạng thái đơn hàng (đang xử lý, hoàn thành, hủy).
 
-**Phát triển thêm:**
+Quản lý tồn kho (Dashboard): * Theo dõi tổng lượng hàng trong kho.
 
-- Thêm chức năng tìm kiếm nâng cao và bộ lọc (filter) khi tra cứu sản phẩm hoặc đơn hàng.
+Cảnh báo thông minh các sản phẩm sắp hết hàng hoặc đã hết hàng.
 
+🛠 Hướng dẫn cài đặt (Local)
+Để chạy dự án trên máy tính cá nhân, bạn vui lòng thực hiện theo các bước sau:
 
+1. Tải mã nguồn
+Tải toàn bộ source code về máy và mở bằng IDE của bạn (ví dụ: VS Code).
 
-# Hướng dẫn chạy chương trình
+2. Cấu hình API Endpoint
+Do dự án đang trỏ link API về server deploy, bạn cần thay đổi để chạy local:
 
-Đây là hướng dẫn để chạy phần mềm quản lý đơn hàng và tồn kho.
+Tìm kiếm toàn bộ link: https://project-final-otbm.onrender.com
 
----
+Thay thế bằng: http://localhost:xxxx (Trong đó xxxx là cổng Backend của bạn).
 
-## 1. Backend
-1. Mở terminal, chuyển vào thư mục `backend`:
-   ```bash
-   cd backend
-Cài các package cần thiết:
+3. Chạy Backend
+Bash
 
-bash
-Sao chép mã
-npm install
-Kiểm tra và cập nhật các biến môi trường trong file .env nếu có.
-
-Khởi chạy server:
-
-bash
-Sao chép mã
+cd backend
+npm install  # Cài đặt các package cần thiết
 node server.js
-Backend mặc định chạy trên port trong .env (ví dụ 5000).
+4. Chạy Frontend
+Bash
 
-2. Frontend
-Mở terminal, chuyển vào thư mục frontend:
-
-bash
-Sao chép mã
 cd frontend
-Cài các package:
-
-bash
-Sao chép mã
-npm install
-Khởi chạy ứng dụng:
-
-bash
-Sao chép mã
+npm install  # Cài đặt các package cần thiết
 npm start
-Ứng dụng mặc định chạy tại http://localhost:3000.
+Lưu ý: Đảm bảo bạn đã cài đặt Node.js và đừng quên chạy npm install ở cả hai thư mục để tải các thư viện phụ thuộc.
 
-3. Chạy môi trường Production (tùy chọn)
-Build frontend:
+🔐 Thông tin đăng nhập dùng thử
+Để truy cập và sử dụng các chức năng, bạn có thể sử dụng tài khoản mặc định sau:
 
-bash
-Sao chép mã
-npm run build
-Cấu hình backend phục vụ thư mục build để chạy sản phẩm ở môi trường production.
+User: 123
 
+Password: 123
 
+⚠️ Hạn chế hiện tại & Hướng phát triển
+Hạn chế
+Hình ảnh: Chưa tích hợp chức năng upload ảnh trực tiếp cho sản phẩm.
+
+Phân quyền: Hệ thống quản lý user còn đơn giản, chưa phân cấp sâu (Admin/Staff).
+
+Giao diện: UI ở mức cơ bản (MVP), chưa được tối ưu hóa đồng bộ về trải nghiệm người dùng.
+
+Kế hoạch phát triển (Roadmap)
+[ ] Phát triển bộ lọc nâng cao (Filter) theo danh mục, giá cả.
+
+[ ] Tích hợp thanh tìm kiếm thông minh (Search Bar).
+
+[ ] Hoàn thiện giao diện người dùng (UI/UX) chuyên nghiệp hơn.
+
+Cảm ơn bạn đã quan tâm đến dự án!
