@@ -1,66 +1,63 @@
-Inventory & Orders Management System
-Ứng dụng quản lý kho hàng và đơn hàng chuyên biệt cho các cửa hàng thiết bị điện tử. Hệ thống giúp tối ưu hóa quy trình theo dõi hàng hóa, xử lý đơn hàng và giám sát mức độ tồn kho theo thời gian thực.
+# 📦 Inventory & Orders Management System
 
-🚀 Tính năng chính
-Hệ thống cung cấp các nhóm chức năng cốt lõi sau:
+Ứng dụng quản lý kho hàng và đơn hàng dành cho các cửa hàng điện tử. Hệ thống giúp theo dõi hàng hóa, xử lý đơn hàng và giám sát tồn kho một cách hiệu quả.
 
-Xác thực người dùng: Đăng ký và đăng nhập để bảo mật dữ liệu hệ thống.
+---
 
-Quản lý sản phẩm (CRUD): Thêm mới, chỉnh sửa thông tin và xóa sản phẩm khỏi danh mục kinh doanh.
+## ✨ Các chức năng chính
 
-Quản lý đơn hàng: Tạo đơn hàng mới, xem danh sách chi tiết và cập nhật trạng thái đơn hàng (đang xử lý, hoàn thành, hủy).
+* **Xác thực người dùng:** Đăng nhập và đăng ký để truy cập hệ thống.
+* **Quản lý sản phẩm:** Cho phép thực hiện các thao tác **Thêm, Sửa, Xóa** sản phẩm điện tử.
+* **Quản lý đơn hàng:** * Xem danh sách đơn hàng.
+    * Tạo đơn hàng mới.
+    * Chỉnh sửa trạng thái đơn hàng.
+* **Quản lý tồn kho (Dashboard):** * Theo dõi lượng hàng hiện có.
+    * Cảnh báo sản phẩm **Sắp hết hàng** hoặc **Đã hết hàng**.
 
-Quản lý tồn kho (Dashboard): * Theo dõi tổng lượng hàng trong kho.
+---
 
-Cảnh báo thông minh các sản phẩm sắp hết hàng hoặc đã hết hàng.
+## 🔑 Thông tin đăng nhập dùng thử
 
-🛠 Hướng dẫn cài đặt (Local)
-Để chạy dự án trên máy tính cá nhân, bạn vui lòng thực hiện theo các bước sau:
+> **Lưu ý:** Bạn cần đăng nhập để sử dụng toàn bộ chức năng.
+* **Tài khoản:** `123`
+* **Mật khẩu:** `123`
 
-1. Tải mã nguồn
-Tải toàn bộ source code về máy và mở bằng IDE của bạn (ví dụ: VS Code).
+---
 
-2. Cấu hình API Endpoint
-Do dự án đang trỏ link API về server deploy, bạn cần thay đổi để chạy local:
+## 🛠 Hướng dẫn chạy dự án trên Local
 
-Tìm kiếm toàn bộ link: https://project-final-otbm.onrender.com
+Để cài đặt và chạy ứng dụng tại máy cá nhân, hãy thực hiện theo các bước sau:
 
-Thay thế bằng: http://localhost:xxxx (Trong đó xxxx là cổng Backend của bạn).
+1.  **Tải mã nguồn:** Download hoặc Clone toàn bộ source code về máy.
+2.  **Mở dự án:** Sử dụng các IDE như VS Code để mở thư mục dự án.
+3.  **Cấu hình API:**
+    * Tìm và đổi tất cả link API từ `https://project-final-otbm.onrender.com` thành `http://localhost:xxxx` (với `xxxx` là cổng Backend của bạn).
+4.  **Chạy Backend:**
+    ```bash
+    cd backend
+    npm install   # Cần cài đặt thêm các package cần thiết
+    node server.js
+    ```
+5.  **Chạy Frontend:**
+    ```bash
+    cd frontend
+    npm install   # Cài đặt thư viện liên quan
+    npm start
+    ```
 
-3. Chạy Backend
-Bash
+---
 
-cd backend
-npm install  # Cài đặt các package cần thiết
-node server.js
-4. Chạy Frontend
-Bash
+## 🚧 Hạn chế hiện tại
 
-cd frontend
-npm install  # Cài đặt các package cần thiết
-npm start
-Lưu ý: Đảm bảo bạn đã cài đặt Node.js và đừng quên chạy npm install ở cả hai thư mục để tải các thư viện phụ thuộc.
+* Chưa thực hiện chức năng **Upload ảnh**.
+* Phần quản lý User sau khi đăng nhập chưa được xử lý sâu.
+* Giao diện còn **thô sơ**, chưa có sự đồng bộ cao.
 
-🔐 Thông tin đăng nhập dùng thử
-Để truy cập và sử dụng các chức năng, bạn có thể sử dụng tài khoản mặc định sau:
+## 🚀 Tiện ích tích hợp thêm
 
-User: 123
+* [ ] Xây dựng bộ lọc (**Filter**) sản phẩm thông minh.
+* [ ] Tích hợp thanh **Tìm kiếm** (Search) nâng cao.
+* [ ] Hoàn thiện và đồng bộ hóa giao diện người dùng.
 
-Password: 123
-
-⚠️ Hạn chế hiện tại & Hướng phát triển
-Hạn chế
-Hình ảnh: Chưa tích hợp chức năng upload ảnh trực tiếp cho sản phẩm.
-
-Phân quyền: Hệ thống quản lý user còn đơn giản, chưa phân cấp sâu (Admin/Staff).
-
-Giao diện: UI ở mức cơ bản (MVP), chưa được tối ưu hóa đồng bộ về trải nghiệm người dùng.
-
-Kế hoạch phát triển (Roadmap)
-[ ] Phát triển bộ lọc nâng cao (Filter) theo danh mục, giá cả.
-
-[ ] Tích hợp thanh tìm kiếm thông minh (Search Bar).
-
-[ ] Hoàn thiện giao diện người dùng (UI/UX) chuyên nghiệp hơn.
-
-Cảm ơn bạn đã quan tâm đến dự án!
+---
+*Chúc bạn cài đặt và trải nghiệm dự án thành công!*
