@@ -16,3 +16,25 @@
 
 - Thêm chức năng tìm kiếm nâng cao và bộ lọc (filter) khi tra cứu sản phẩm hoặc đơn hàng.
 
+
+# Hướng dẫn chạy chương trình
+
+Đây là hướng dẫn để chạy phần mềm quản lý đơn hàng và tồn kho.
+
+## Backend
+1. Mở terminal, chuyển vào thư mục `backend`:
+   cd backend
+2. Cài các package cần thiết:
+    npm install
+3. Kiểm tra và cập nhật các biến môi trường trong file .env nếu có.
+4. Khởi chạy server:
+    node server.js
+    Backend mặc định chạy trên port trong .env (ví dụ 5000).
+## Frontend
+1. Mở terminal, chuyển vào thư mục frontend:
+   cd frontend
+2. Cài các package:
+   npm install
+3. Khởi chạy ứng dụng:
+   npm start
+   Ứng dụng mặc định chạy tại http://localhost:3000
